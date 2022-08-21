@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "movies",
   "info": {
-    "name": "movies"
+    "name": "Movies",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,53 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
+      "type": "string"
+    },
+    "poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "regisseur": {
+      "via": "movies",
+      "model": "regisseurs"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "release": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "watchlists": {
+      "via": "movies",
+      "collection": "watchlist"
+    },
+    "reclists": {
+      "via": "movies",
+      "collection": "reclist"
+    },
+    "seenlists": {
+      "via": "movies",
+      "collection": "seenlist"
+    },
+    "reviews": {
+      "via": "movies",
+      "collection": "review"
+    },
+    "regisseurShort": {
       "type": "string"
     }
   }
